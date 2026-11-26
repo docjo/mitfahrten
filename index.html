@@ -25,21 +25,21 @@
   .site-header { background: var(--white); padding: 16px var(--gutter); }
   .site-header svg { height: 28px; width: auto; display: block; }
 
-  .hero { background: var(--white); padding: 8px var(--gutter) 24px; }
-  .hero h1 { margin: 0; font-size: clamp(32px, 4vw, 44px); line-height: 1.15; font-weight: 700; text-transform: uppercase; }
+  .hero { background: var(--white); padding: 8px var(--gutter) 0; }
+  .hero h1 { margin: 0; font-size: clamp(22px, 3.2vw + 10px, 44px); line-height: 1.15; font-weight: 700; text-transform: uppercase; }
   .hero h1 span { white-space: nowrap; }
 
   .filters { position: sticky; top: 0; z-index: 10; }
   .dir-wrap { background: var(--white); padding-top: 8px; }
   .dir-tabs { display: flex; flex-wrap: nowrap; align-items: flex-end; gap: 2px; padding: 0 var(--gutter); border-bottom: 4px solid var(--primary); }
   .dir-tabs button { flex: 0 0 auto; min-height: 48px; padding: 0 26px 0 14px; border: none; border-radius: 0 30px 0 0; background: transparent; color: var(--ink); font-size: 15px; font-weight: 700; white-space: nowrap; cursor: pointer; }
-  .dir-tabs button[aria-pressed="true"] { background: var(--primary); color: var(--white); }
+  .dir-tabs button[aria-pressed="true"] { background: var(--primary); color: var(--ink); }
 
   .day-wrap { background: var(--cream); padding: 12px 0; }
   .day-strip { display: flex; flex-wrap: nowrap; gap: 6px; overflow-x: auto; padding: 0 var(--gutter-sm); scrollbar-width: none; }
   .day-strip::-webkit-scrollbar { display: none; }
   .day-strip button { flex: 0 0 auto; width: 80px; height: 60px; padding: 0; border: none; border-radius: 0 18px 0 0; background: var(--white); color: var(--ink); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; cursor: pointer; }
-  .day-strip button[aria-pressed="true"] { background: var(--primary); color: var(--white); }
+  .day-strip button[aria-pressed="true"] { background: var(--primary); color: var(--ink); }
   .day-strip .top { font-size: 15px; font-weight: 700; line-height: 1; }
   .day-strip .bottom { font-size: 13px; font-weight: 400; line-height: 1; }
 
@@ -50,24 +50,31 @@
   .ride { background: var(--white); padding: 20px 16px; display: flex; flex-direction: column; gap: 16px; }
   .ride-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; height: 26px; }
   .ride-day { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; }
-  .badge { font-size: 13px; font-weight: 700; padding: 5px 10px; background: var(--cream); }
-  .times { display: flex; align-items: center; gap: 12px; }
-  .dep { font-size: 40px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
-  .arr { font-size: 22px; line-height: 1; font-variant-numeric: tabular-nums; }
+  .badge { margin-left: auto; font-size: 14px; font-weight: 700; padding: 8px 12px; white-space: nowrap; background: var(--cream); color: var(--ink); }
+  .times { display: flex; align-items: center; gap: 12px; min-height: 40px; }
+  .dep { font-size: clamp(36px, 1vw + 32px, 40px); font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+  .arr { font-size: clamp(22px, 0.5vw + 20px, 24px); line-height: 1; font-variant-numeric: tabular-nums; }
   .route { display: flex; gap: 12px; }
-  .route-line { display: flex; flex-direction: column; align-items: center; padding-top: 4px; }
-  .route-line .from { width: 10px; height: 10px; border: 2px solid var(--ink); background: var(--white); }
-  .route-line .bar { width: 2px; flex: 1 1 auto; min-height: 26px; background: var(--ink); }
-  .route-line .to { width: 10px; height: 10px; background: var(--ink); }
-  .stops { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
-  .stop { display: flex; flex-direction: column; gap: 2px; }
-  .stop-name { font-size: 16px; font-weight: 700; }
-  .stop-track { font-size: 14px; color: var(--muted); }
-  .contact { display: flex; align-items: center; gap: 12px; background: var(--cream); padding: 12px 12px 12px 14px; }
-  .contact-text { display: flex; flex-direction: column; gap: 4px; min-width: 0; flex: 1 1 auto; font-size: 14px; }
-  .call { flex: 0 0 auto; width: 48px; height: 48px; background: var(--orange-dark); color: var(--white); display: flex; align-items: center; justify-content: center; text-decoration: none; }
+  .route-line { display: flex; flex-direction: column; align-items: center; padding: 5px 0; }
+  .route-line .from { width: 10px; height: 10px; border: 2px solid var(--ink); background: var(--white); flex: 0 0 auto; }
+  .route-line .bar { width: 2px; flex: 1 1 auto; background: var(--ink); }
+  .route-line .to { width: 10px; height: 10px; background: var(--ink); flex: 0 0 auto; }
+  .stops { display: flex; flex-direction: column; gap: 22px; min-width: 0; flex: 1 1 auto; }
+  .stop { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  .stop-name { font-size: 16px; font-weight: 700; line-height: 20px; }
+  .stop-track { font-size: 14px; white-space: nowrap; }
+  .stop-track strong { font-weight: 700; }
+  .contact { display: flex; align-items: center; gap: 12px; background: var(--cream); padding: 12px; }
+  .contact-text { display: flex; flex-direction: column; gap: 4px; min-width: 0; flex: 1 1 auto; padding-left: 2px; font-size: 14px; line-height: 1.3; }
+  .contact-text strong { font-weight: 600; }
+  .contact-text .phone { font-size: 18px; font-weight: 600; line-height: 1.2; letter-spacing: 0.01em; white-space: nowrap; }
+  .call { flex: 0 0 auto; height: 48px; padding: 0 18px 0 14px; background: var(--orange-dark); color: var(--white); display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 16px; font-weight: 400; text-decoration: none; }
 
-  .site-footer { position: sticky; bottom: 0; z-index: 10; background: var(--ink); color: var(--white); padding: 14px var(--gutter); font-size: 14px; line-height: 1.4; font-weight: 700; }
+  .site-footer { position: sticky; bottom: 0; z-index: 10; background: var(--cream); color: var(--ink); border-top: 1px solid #E8D2B6; padding: 14px var(--gutter); display: flex; align-items: flex-start; gap: 12px; }
+  .site-footer svg { flex: 0 0 auto; margin-top: 1px; }
+  .notice { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .notice-title { font-size: 16px; font-weight: 700; line-height: 1.3; }
+  .notice-text { font-size: 14px; line-height: 1.4; }
 </style>
 </head>
 <body>
@@ -98,7 +105,13 @@
     <div class="list" id="list"></div>
   </main>
 
-  <footer class="site-footer">Wer mitfahren will, meldet sich kurz telefonisch.</footer>
+  <footer class="site-footer">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C13E17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg>
+    <div class="notice">
+      <span class="notice-title">Mitfahrt telefonisch abstimmen</span>
+      <span class="notice-text">Abfahrtszeiten und Gleise können sich kurzfristig ändern.</span>
+    </div>
+  </footer>
 </div>
 
 <script>
@@ -124,7 +137,7 @@
         const abst = String(650 + rnd(9));
         const hbf = String(1 + rnd(16));
         rides.push({
-          name: '[Name]', phone: '[Telefonnummer]', date: iso(d),
+          name: 'Max Mustermann', phone: '0170 123 4567', date: iso(d),
           dep: hm(dep), arr: hm(dep + dur), dir: dir,
           fromTrack: dir === 'hbf' ? abst : hbf,
           toTrack: dir === 'hbf' ? hbf : abst,
@@ -135,7 +148,7 @@
     return rides;
   }
 
-  const state = { filter: 'alle', day: iso(new Date()), rides: buildDemoRides() };
+  const state = { filter: 'hbf', day: iso(new Date()), rides: buildDemoRides() };
 
   function dayLabel(isoDate) {
     const d = new Date(isoDate + 'T00:00:00');
@@ -147,15 +160,18 @@
     const arr = new Date(r.date + 'T' + (r.arr || r.dep) + ':00');
     const now = new Date();
     const min = Math.round((dep - now) / 60000);
-    if (now > arr) return '';
-    if (min <= 0) return 'fährt gerade';
-    if (min <= 120) return 'in ' + min + ' Min';
-    if (r.date === iso(now)) return 'heute';
-    return '';
+    if (now > arr) return null;
+    if (min <= 0) return { text: 'fährt gerade', lv: 'now' };
+    if (min <= 5) return { text: 'in ca. ' + min + ' Min.', lv: 'now' };
+    if (min <= 15) return { text: 'in ca. ' + min + ' Min.', lv: 'soon' };
+    if (min <= 60) return { text: 'in ca. ' + min + ' Min.', lv: 'near' };
+    if (min <= 120) return { text: 'in ca. ' + min + ' Min.', lv: 'later' };
+    if (r.date === iso(now)) return { text: 'heute', lv: 'later' };
+    return null;
   }
 
   function renderDirTabs() {
-    const defs = [{ id: 'alle', label: 'Alle' }, { id: 'hbf', label: 'Zum Hbf' }, { id: 'abst', label: 'Zur Abstellung' }];
+    const defs = [{ id: 'hbf', label: 'Zum Hbf' }, { id: 'abst', label: 'Zur Abstellung' }];
     const el = document.getElementById('dirTabs');
     el.innerHTML = defs.map((f) =>
       '<button type="button" data-id="' + f.id + '" aria-pressed="' + (state.filter === f.id) + '">' + f.label + '</button>'
@@ -187,7 +203,7 @@
     const list = state.rides
       .slice()
       .sort((a, b) => (a.date + a.dep).localeCompare(b.date + b.dep))
-      .filter((r) => state.filter === 'alle' || r.dir === state.filter)
+      .filter((r) => r.dir === state.filter)
       .filter((r) => r.date === state.day)
       .filter((r) => new Date(r.date + 'T' + (r.arr || r.dep) + ':00') >= now);
 
@@ -201,19 +217,18 @@
       const b = badge(r);
       const tel = 'tel:' + String(r.phone || '').replace(/[^0-9+]/g, '');
       return '<article class="ride">' +
-        '<div class="ride-head"><span class="ride-day">' + dayLabel(r.date) + '</span>' +
-          (b ? '<span class="badge">' + esc(b) + '</span>' : '') + '</div>' +
         '<div class="times"><span class="dep">' + r.dep + '</span>' + arrowSvg +
-          '<span class="arr">' + (r.arr ? 'an ' + r.arr : 'an –') + '</span></div>' +
+          '<span class="arr">' + (r.arr || '–') + '</span>' +
+          (b ? '<span class="badge">' + esc(b.text) + '</span>' : '') + '</div>' +
         '<div class="route"><div class="route-line" aria-hidden="true"><span class="from"></span><span class="bar"></span><span class="to"></span></div>' +
           '<div class="stops">' +
-            '<div class="stop"><span class="stop-name">' + (toHbf ? 'Abstellung Stuttgart' : 'Stuttgart Hbf') + '</span><span class="stop-track">vsl. Gleis ' + esc(r.fromTrack || '–') + '</span></div>' +
-            '<div class="stop"><span class="stop-name">' + (toHbf ? 'Stuttgart Hbf' : 'Abstellung Stuttgart') + '</span><span class="stop-track">vsl. Gleis ' + esc(r.toTrack || '–') + '</span></div>' +
+            '<div class="stop"><span class="stop-name">' + (toHbf ? 'Stuttgart Abstellung' : 'Stuttgart Hbf') + '</span><span class="stop-track">vsl. Gleis ' + esc(r.fromTrack || '–') + '</span></div>' +
+            '<div class="stop"><span class="stop-name">' + (toHbf ? 'Stuttgart Hbf' : 'Stuttgart Abstellung') + '</span><span class="stop-track">vsl. Gleis ' + esc(r.toTrack || '–') + '</span></div>' +
           '</div></div>' +
         '<div class="contact"><div class="contact-text">' +
-          '<span>angeboten von <strong>' + esc(r.name) + '</strong></span>' +
-          '<span>Zug <strong>' + esc(r.train) + '</strong> · ' + esc(r.phone) + '</span></div>' +
-          '<a class="call" href="' + esc(tel) + '" aria-label="' + esc(r.name) + ' anrufen">' + phoneSvg + '</a></div>' +
+          '<span><strong>' + esc(r.name) + '</strong> · Zug ' + esc(r.train) + '</span>' +
+          '<span class="phone">' + esc(r.phone) + '</span></div>' +
+          '<a class="call" href="' + esc(tel) + '" aria-label="' + esc(r.name) + ' anrufen">' + phoneSvg + '<span>Anrufen</span></a></div>' +
       '</article>';
     }).join('');
   }
