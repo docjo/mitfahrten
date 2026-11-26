@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>Mitfahrten Stuttgart</title>
 <style>
   :root {
@@ -16,11 +18,12 @@
     --gutter-sm: max(16px, calc((100% - 1200px) / 2));
   }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--cream); font-family: Arial, Helvetica, sans-serif; color: var(--ink); }
+  html, body { background: var(--white); }
+  body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: var(--ink); }
   button { font: inherit; }
   button:focus-visible, a:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
 
-  .page { min-height: 100vh; display: flex; flex-direction: column; }
+  .page { min-height: 100vh; display: flex; flex-direction: column; background: var(--cream); }
 
   .site-header { background: var(--white); padding: 16px var(--gutter); }
   .site-header svg { height: 28px; width: auto; display: block; }
